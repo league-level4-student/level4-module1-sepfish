@@ -1,11 +1,9 @@
 package _00_Intro_To_Templates;
 
 import java.util.Random;
-
 // A template is a way to define one variable that can act as different types.
 // Templates can be used in methods and classes. 
 // The syntax for templates are the angle brackets <>
-
 
 public class IntroToTemplates {
 	public static void main(String[] args) {
@@ -36,7 +34,7 @@ public class IntroToTemplates {
 	}
 }
 
-//Here a class is created that has a template called AotherTemplate
+//Here a class is created that has a template called AnotherTemplate
 //Class templates must be a class, not a primitive data type: int, float, double, boolean, long, short, byte
 class SomeClass<AnotherTemplate>{
 	//Here the t variable can be any object type
