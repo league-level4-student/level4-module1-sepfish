@@ -45,6 +45,10 @@ public class CustomArrayListTest {
 		
 		list.insert(2, 'E');
 		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		
 		if(list.get(0) != 'D') fail("list.get(0) returning improper value.");
 		if(list.get(1) != 'I') fail("list.get(1) returning improper value.");
 		if(list.get(2) != 'E') fail("list.get(2) returning improper value.");
@@ -79,6 +83,7 @@ public class CustomArrayListTest {
 		}
 		
 		list.remove(2);
+		
 		if(!list.get(0).name.equals("Sara")) {
 			fail("list.get(0) returning improper value.");
 		}
