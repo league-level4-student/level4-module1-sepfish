@@ -54,7 +54,10 @@ public class Snake {
 		//1. set the current direction equal to the passed in Direction only if canMove is true.
 		//   set canMove equal to false.
 		//   make sure the snake cannot completely reverse directions.
-		
+		if (canMove) {
+			currentDirection = d;
+			canMove = false;
+		}
 	}
 
 	public void reset(Location loc) {
