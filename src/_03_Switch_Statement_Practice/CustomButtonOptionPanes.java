@@ -37,18 +37,24 @@ public class CustomButtonOptionPanes {
 			JOptionPane.showMessageDialog(null, "IT'S HUMP DAY!!!");
 			break;
 		case "Thursday": //Put something here!!!!!!
-			AudioClip sound1 = JApplet.newAudioClip(getClass().getResource("put something here!!!!"));
+			AudioClip sound1 = JApplet.newAudioClip(getClass().getResource("vriska.wav"));
 			sound1.play();
 			break;
 		case "Friday":
 			try {
-				URI uri = new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+				URI uri = new URI("https://docs.google.com/document/d/e/2PACX-1vT5XdG77iUZkibeAysT3aaSrGHJxjdPyKvxIt7TX7A2H9n9Uo7FKbO9VTgiQacxa2U3_FRb7oSOXepf/pub");
 				java.awt.Desktop.getDesktop().browse(uri);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			break;
 		case "Saturday": 
+			try {
+				URI uri = new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+				java.awt.Desktop.getDesktop().browse(uri);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "Boo...");
