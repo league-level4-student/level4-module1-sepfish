@@ -23,6 +23,8 @@ public class Snake {
 		currentDirection = Direction.RIGHT;
 	}
 
+	//snake does not reset position, snake does not collide with food
+	
 	public void feed() {
 		// 1. add a new SnakeSegment object to the snake
 		System.out.println("feed");
