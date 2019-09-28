@@ -87,13 +87,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   of the game. The smaller the number, the faster it goes.
 		switch(choice) {
 		case "Expert":{
-			timer.setDelay(5);
+			timer.setDelay(2500/60);
 		}
 		case "Moderate":{
-			timer.setDelay(10);
+			timer.setDelay(5000/60);
 		}
 		case "Beginner":{
-			timer.setDelay(20);
+			timer.setDelay(10000/60);
 		}
 		}
 
@@ -118,19 +118,25 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		switch(e.getKeyCode()) {
 		case 38:{
 			snake.setDirection(Direction.UP);
+			break;
 		}
 		case 39:{
 			snake.setDirection(Direction.RIGHT);
+			break;
 		}
 		case 40:{
 			snake.setDirection(Direction.DOWN);
+			break;
 		}
 		case 37:{
 			snake.setDirection(Direction.LEFT);
+			break;
 		}
-		case 32:{
+		/*case 32:{
 			snake.feed();
-		}
+			setFoodLocation();
+			break;
+		}*/
 		}
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
@@ -142,9 +148,9 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
 		Random rand = new Random();
-		int r1 = rand.nextInt(16);
-		int r2 = rand.nextInt(13);
-		Location loc = new Location(16, 13);
+		int r1 = rand.nextInt(WIDTH);
+		int r2 = rand.nextInt(HEIGHT);
+		Location loc = new Location(r1, r2);
 		
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
@@ -184,7 +190,12 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		snake.update();
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
-		if (snake.isHeadCollidingWithBody() || snake.isOutOfBounds()) {
+		if (snake.isHeadCollidingWithBody()) {
+			System.out.println("head collided");
+			gameOver();
+		}
+		if (snake.isOutOfBounds()) {
+			System.out.println("out of bounds");
 			gameOver();
 		}
 		//3. if the location of the head is equal to the location of the food,
