@@ -52,7 +52,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 				g2.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 				g2.setColor(FOOD_COLOR);
-				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
+				g2.drawOval(foodLocation.x/* * WINDOW_SCALE*/, foodLocation.y/* * WINDOW_SCALE*/, Snake.BODY_SIZE,
 						Snake.BODY_SIZE);
 				snake.draw(g);
 			}
@@ -148,8 +148,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
 		Random rand = new Random();
-		int r1 = rand.nextInt(WIDTH);
-		int r2 = rand.nextInt(HEIGHT);
+		int r1 = ((rand.nextInt(11) + 1)*50 + 7);
+		int r2 = ((rand.nextInt(11) + 1)*50 + 6);
 		Location loc = new Location(r1, r2);
 		
 		//2. set the foodLocation variable equal to the Location object you just created.
@@ -157,6 +157,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		if (!snake.isLocationOnSnake(loc)) {
 			foodLocation = loc;
 		}
+		System.out.println("food x: " + loc.x + " food y: " + loc.y);
 	}
 
 	private void gameOver() {
@@ -164,14 +165,14 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//1. stop the timer
 		timer.stop();
 		//2. tell the user their snake is dead
-		JOptionPane.showMessageDialog(null, "You died!");
+		JOptionPane.showMessageDialog(null, "You died! You ate " + snake.score + " pieces of food.");
 		//3. ask them if they want to play again.
 		int input = JOptionPane.showOptionDialog(null, "Do you want to play again?", "Snake", 0, -1, null, new String[] {"No", "Yes"}, 0);
 		//4. if they want to play again
 		//   reset the snake and the food and start the timer
 		//   else, exit the game
 		if (input == 1) {
-			snake.reset(new Location(WIDTH / 2, HEIGHT / 2));
+			snake.reset(new Location(57, 6));
 			timer.start();
 		} else {
 			System.exit(0);

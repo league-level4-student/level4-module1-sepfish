@@ -10,7 +10,7 @@ public class Snake {
 
 	private SnakeSegment head;
 	private ArrayList<SnakeSegment> snake;
-
+	public int score = 0;
 	private Direction currentDirection;
 
 	private boolean canMove = true;
@@ -27,8 +27,8 @@ public class Snake {
 	
 	public void feed() {
 		// 1. add a new SnakeSegment object to the snake
-		System.out.println("feed");
 		snake.add(new SnakeSegment(snake.get(0).getLocation(), BODY_SIZE));
+		score++;
 	}
 
 	public Location getHeadLocation() {
